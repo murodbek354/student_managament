@@ -1,5 +1,5 @@
 <?php
-include "../confing/db.php";
+include "../config/db.php";
 $id = $_GET['id'];
 $sql = "SELECT * FROM students WHERE id = ? ";
 $data = $conn->prepare($sql);
@@ -73,12 +73,12 @@ $student = $data->fetch()
     <h2>Student Qo'shish</h2>
 
     <form action="store.php" method="POST">
-        <input type="text" name="first_name" placeholder="Ismi" required>
-        <input type="text" name="last_name" placeholder="Familiyasi" required>
-        <input type="number" name="age" placeholder="Yoshi" required>
-        <input type="text" name="class_name" placeholder="Sinfi (masalan 9-A)" required>
-        <input type="text" name="phone" placeholder="Telefon raqami" required>
-        <input type="text" name="address" placeholder="Manzil" required>
+        <input type="text" name="first_name" value="<?= $student['first_name'] ?>" placeholder="Ismi" required>
+        <input type="text" name="last_name" value="<?= $student['last_name'] ?>" placeholder="Familiyasi" required>
+        <input type="number" name="age"  value="<?= $student['age'] ?>" placeholder="Yoshi" required>
+        <input type="text" name="class_name"  value="<?= $student['class_name'] ?>" placeholder="Sinfi (masalan 9-A)" required>
+        <input type="text" name="phone"  value="<?= $student['phone'] ?>" placeholder="Telefon raqami" required>
+        <input type="text" name="address"  value="<?= $student['address'] ?>" placeholder="Manzil" required>
 
         <button type="submit">Saqlash</button>
     </form>
